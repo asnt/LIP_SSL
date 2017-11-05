@@ -1,5 +1,5 @@
 FROM nvidia/cuda:7.5-cudnn4-devel-ubuntu14.04
-LABEL maintainer http://github.com/asnt
+LABEL maintainer https://github.com/asnt
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
