@@ -56,4 +56,7 @@ ENV PYTHONPATH $PYLIPSSL_ROOT:$PYTHONPATH
 ENV PATH $LIPSSL_ROOT/build/tools:$PYLIPSSL_ROOT:$PATH
 RUN echo "$LIPSSL_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
+COPY human/model/attention/test.caffemodel \
+  human/model/attention/
+
 WORKDIR $LIPSSL_ROOT

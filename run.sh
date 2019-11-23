@@ -38,6 +38,7 @@ mkdir -p ${LOG_DIR}
 export GLOG_log_dir=${LOG_DIR}
 LIST_DIR=${ROOT_DIR}/${EXP}/list
 DATA_DIR=${ROOT_DIR}/${EXP}/data
+mkdir -p $DATA_DIR
 
 run_test() {
     TEST_SET=val
