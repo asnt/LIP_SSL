@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV LIPSSL_ROOT=/opt/lipssl
 WORKDIR $LIPSSL_ROOT
 
-RUN git clone --depth 1 https://github.com/Engineering-Course/LIP_SSL . && \
+RUN git clone -b custom-driver https://github.com/asnt/LIP_SSL . && \
     git config -f .gitmodules submodule.code.url ../caffe_ssl.git && \
     git submodule update --init --recursive
 
