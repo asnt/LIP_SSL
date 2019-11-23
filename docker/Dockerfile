@@ -35,12 +35,12 @@ RUN git clone -b custom-driver https://github.com/asnt/LIP_SSL . \
 
 COPY FindMATIO.cmake code/cmake/Modules/
 
-RUN pip install --upgrade pip && \
-    cd code/python && \
-    for req in $(cat requirements.txt) pydot; \
-        do pip install $req; \
-    done && \
-    cd ../..
+RUN pip install --upgrade pip \
+    && cd code/python \
+    && for req in $(cat requirements.txt) pydot; \
+         do pip install $req; \
+       done \
+    && cd ../..
 
 RUN cd code && \
     git checkout master && \
