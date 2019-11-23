@@ -1,7 +1,8 @@
 FROM nvidia/cuda:7.5-cudnn4-devel-ubuntu14.04
 LABEL maintainer https://github.com/asnt
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
         build-essential \
         cmake \
         git \
@@ -22,15 +23,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-numpy \
         python-pip \
         python-setuptools \
-        python-scipy && \
-    rm -rf /var/lib/apt/lists/*
+        python-scipy \
+   && rm -rf /var/lib/apt/lists/*
 
 ENV LIPSSL_ROOT=/opt/lipssl
 WORKDIR $LIPSSL_ROOT
 
-RUN git clone -b custom-driver https://github.com/asnt/LIP_SSL . && \
-    git config -f .gitmodules submodule.code.url ../caffe_ssl.git && \
-    git submodule update --init --recursive
+RUN git clone -b custom-driver https://github.com/asnt/LIP_SSL . \
+    && git config -f .gitmodules submodule.code.url ../caffe_ssl.git \
+    && git submodule update --init --recursive
 
 COPY FindMATIO.cmake code/cmake/Modules/
 
