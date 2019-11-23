@@ -33,6 +33,8 @@ RUN git clone -b custom-driver https://github.com/asnt/LIP_SSL . \
     && git config -f .gitmodules submodule.code.url ../caffe_ssl.git \
     && git submodule update --init --recursive
 
+RUN cd code \
+    && git checkout build-fixes
 COPY FindMATIO.cmake code/cmake/Modules/
 
 RUN pip install --upgrade pip \
@@ -43,7 +45,6 @@ RUN pip install --upgrade pip \
     && cd ../..
 
 RUN cd code \
-    && git checkout master \
     && mkdir build \
     && cd build \
     && cmake -DUSE_CUDNN=1 .. \
