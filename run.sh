@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ## MODIFY PATH for YOUR SETTING
 ROOT_DIR=$(dirname $0)
