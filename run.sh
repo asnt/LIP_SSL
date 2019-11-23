@@ -5,7 +5,7 @@ ROOT_DIR=$(dirname $0)
 
 pushd ${ROOT_DIR}
 
-CAFFE_DIR=${ROOT_DIR}/code/build-cmake/install
+CAFFE_DIR=${ROOT_DIR}/code/build/install
 CAFFE_BIN=${CAFFE_DIR}/bin/caffe
 
 DEV_ID=0
