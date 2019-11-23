@@ -42,12 +42,12 @@ RUN pip install --upgrade pip \
        done \
     && cd ../..
 
-RUN cd code && \
-    git checkout master && \
-    mkdir build && \
-    cd build && \
-    cmake -DUSE_CUDNN=1 .. && \
-    make -j"$(nproc)" \
+RUN cd code \
+    && git checkout master \
+    && mkdir build \
+    && cd build \
+    && cmake -DUSE_CUDNN=1 .. \
+    && make -j"$(nproc)" \
     && make install
 
 ENV PYLIPSSL_ROOT $LIPSSL_ROOT/build/python
