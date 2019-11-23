@@ -46,7 +46,8 @@ RUN cd code && \
     mkdir build && \
     cd build && \
     cmake -DUSE_CUDNN=1 .. && \
-    make -j"$(nproc)"
+    make -j"$(nproc)" \
+    && make install
 
 ENV PYLIPSSL_ROOT $LIPSSL_ROOT/build/python
 ENV PYTHONPATH $PYLIPSSL_ROOT:$PYTHONPATH
