@@ -20,7 +20,13 @@ for i = 1 : numel(output_dir)
 
     img_fn = output_dir(i).name(1:end-4);
     img_fn = strrep(img_fn, '_blob_0', '');
-    img = imread(fullfile(data_root_folder, 'images', [img_fn, '.jpg']));
+    image_path = fullfile(data_root_folder, 'images', [img_fn, '.jpg']);
+    if exist(image_path, 'file') ~= 2
+        image_path = fullfile(data_root_folder, 'images', [img_fn, '.png']);
+    end
+    assert(exist(image_path, 'file') == 2,...
+        ['image does not exist: ' image_path]);
+    img = imread(image_path);
 
     % img_row = size(img, 1);
     % img_col = size(img, 2);
