@@ -32,12 +32,14 @@ TRAIN_SET_STRONG=train
 ## Create dirs
 CONFIG_DIR=${ROOT_DIR}/${EXP}/config/${NET_ID}
 MODEL_DIR=${ROOT_DIR}/${EXP}/model/${NET_ID}
-mkdir -p ${MODEL_DIR}
 LOG_DIR=${ROOT_DIR}/${EXP}/log/${NET_ID}
-mkdir -p ${LOG_DIR}
 export GLOG_log_dir=${LOG_DIR}
 LIST_DIR=${ROOT_DIR}/${EXP}/list
 DATA_DIR=${ROOT_DIR}/${EXP}/data
+
+mkdir -p $MODEL_DIR
+mkdir -p $LOG_DIR
+mkdir -p $LIST_DIR
 mkdir -p $DATA_DIR
 
 run_test() {
