@@ -17,7 +17,7 @@ for i = 1 : numel(output_dir)
     data = load(fullfile(output_mat_folder, output_dir(i).name));
     raw_result = data.data;
     raw_result = permute(raw_result, [2 1 3]);
-    
+
     img_fn = output_dir(i).name(1:end-4);
     img_fn = strrep(img_fn, '_blob_0', '');
     img = imread(fullfile(data_root_folder, 'images', [img_fn, '.jpg']));
