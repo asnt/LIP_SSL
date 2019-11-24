@@ -47,8 +47,11 @@ run_test() {
 
     # Generate the list of input image paths and id's.
     images=($(ls ${DATA_DIR}/images))
-    # image_paths=(${images[@]/#/${DATA_DIR}\/images\/})
+
+    # Ensure image paths are relative to DATA_DIR which is the root data dir
+    # defined in the caffe model config.
     image_paths=(${images[@]/#/images\/})
+
     printf "%s\n" "${image_paths[@]}" > ${LIST_DIR}/val.txt
     ids=(${images[@]%.png})
     printf "%s\n" "${ids[@]}" > ${LIST_DIR}/val_id.txt
