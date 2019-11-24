@@ -1,0 +1,11 @@
+#!/bin/bash
+
+image_dir=$(readlink -f $1)
+
+nvidia-docker run \
+  --rm \
+  -it \
+  -v $image_dir:/opt/lipssl/human/data/images \
+  -v $(readlink -f human/model/attention):/opt/lipssl/human/model/attention \
+  -v $(readlink -f human/features):/opt/lipssl/human/features \
+  lipssl
