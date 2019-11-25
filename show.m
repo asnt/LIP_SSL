@@ -41,5 +41,3 @@ for i = 1 : numel(output_dir)
     mask = uint8(result);
     imwrite(mask, colormap, fullfile(save_result_folder, [img_fn, '.png']));
 end
-
-      
